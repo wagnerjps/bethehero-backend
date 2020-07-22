@@ -3,7 +3,7 @@ const configuration = require("../../knexfile");
 
 const env = process.env.NODE_ENV;
 
-const config = (env === 'test') ? configuration.test : configuration.development;
+const config = (env === 'test') ? configuration.test : (env === 'production') ? configuration.production : configuration.development;
 
 const connection = knex(config);
 

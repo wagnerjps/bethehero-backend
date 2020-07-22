@@ -8,7 +8,7 @@ module.exports = {
       filename: './src/database/db.sqlite'
     },
     migrations: {
-      directory: "./src/database/migrations"
+      directory: './src/database/migrations'
     },
     useNullAsDefault: true,
   },
@@ -19,25 +19,26 @@ module.exports = {
       filename: './src/database/test.sqlite'
     },
     migrations: {
-      directory: "./src/database/migrations"
+      directory: './src/database/migrations'
     },
     useNullAsDefault: true,
   },
 
   production: {
     client: 'postgresql',
-    connection: {
-      database: process.env.DATABASE_DBID,
-      user:     process.env.DATABASE_USER,
-      password: process.env.DATABASE_PASS
-    },
+    connection: process.env.DATABASE_URL,
     pool: {
       min: 2,
       max: 10
     },
     migrations: {
+      directory: './src/database/migrations',
       tableName: 'knex_migrations'
-    }
+    },
+    seeds: {
+      directory: './src/database/migrations'
+    },
+    useNullAsDefault: true
   }
 
 };
