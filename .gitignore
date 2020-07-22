@@ -1,2 +1,5 @@
 node_modules
 .env
+*.db3
+*.sqlite
+*test.sqlite
