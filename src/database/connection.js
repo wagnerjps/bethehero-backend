@@ -1,10 +1,10 @@
 const knex = require("knex");
-const config = require("../../knexfile");
+const configuration = require("../../knexfile");
 
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV;
 
-//const config = (env === 'test') ? configuration.test : configuration.development;
+const config = (env === 'test') ? configuration.test : configuration.development;
 
-const db = knex(config(env));
+const connection = knex(config);
 
-module.exports = db;
+module.exports = connection;
