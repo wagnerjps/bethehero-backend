@@ -1,6 +1,2 @@
 node_modules
 .env
-
-/src/database/db.sqlite
-src/database/db.sqlite
-db.sqlite
