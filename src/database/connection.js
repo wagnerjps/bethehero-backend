@@ -2,7 +2,7 @@ const knex = require("knex");
 const configuration = require("../../knexfile");
 
 const env = process.env.NODE_ENV;
-const config = ''
+const config = configuration.development
 
 switch(env){
     case 'teste':
