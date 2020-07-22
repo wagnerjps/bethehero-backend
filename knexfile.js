@@ -24,36 +24,19 @@ module.exports = {
     useNullAsDefault: true,
   },
 
-  staging: {
-    client: 'postgresql',
-    connection: {
-      database: process.env.POSTGRESSQL_DBA,
-      user:     process.env.POSTGRESSQL_USE,
-      password: process.env.POSTGRESSQL_PAS
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
-  },
-
   production: {
-    client: 'postgresql',
-    connection: {
-      database: process.env.POSTGRESSQL_DBA,
-      user:     process.env.POSTGRESSQL_USE,
-      password: process.env.POSTGRESSQL_PAS
-    },
+    client: 'pg',
+    connection: process.env.DATABASE_URL,
     pool: {
       min: 2,
       max: 10
     },
     migrations: {
-      tableName: 'knex_migrations'
-    }
+      directory: __dirname + './src/database/migrations',
+    },
+    seeds: {
+        directory: __dirname + './src/database/migrations',
+    },
   }
 
 };
